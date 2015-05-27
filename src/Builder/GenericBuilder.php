@@ -58,7 +58,7 @@ class GenericBuilder implements BuilderInterface
      *
      * @var array
      */
-    private $queryWriterArray = [
+    private $queryWriterArray = array(
         'SELECT'    => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createSelectWriter',
         'INSERT'    => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createInsertWriter',
         'UPDATE'    => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUpdateWriter',
@@ -67,14 +67,14 @@ class GenericBuilder implements BuilderInterface
         'MINUS'     => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createMinusWriter',
         'UNION'     => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUnionWriter',
         'UNION ALL' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUnionAllWriter',
-    ];
+    );
 
     /**
      * Array that stores instances of query writers.
      *
      * @var array
      */
-    private $queryWriterInstances = [
+    private $queryWriterInstances = array(
         'SELECT'    => null,
         'INSERT'    => null,
         'UPDATE'    => null,
@@ -83,7 +83,7 @@ class GenericBuilder implements BuilderInterface
         'MINUS'     => null,
         'UNION'     => null,
         'UNION ALL' => null,
-    ];
+    );
 
     /**
      * Creates writers.
@@ -394,7 +394,7 @@ class GenericBuilder implements BuilderInterface
         if (null === $this->queryWriterInstances[$queryPart]) {
             $this->queryWriterInstances[$queryPart] = call_user_func_array(
                 explode('::', $this->queryWriterArray[$queryPart]),
-                [$this, $this->placeholderWriter]
+                array($this, $this->placeholderWriter)
             );
         }
     }
