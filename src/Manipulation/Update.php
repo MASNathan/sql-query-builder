@@ -23,7 +23,7 @@ class Update extends AbstractCreationalQuery
     /**
      * @var array
      */
-    protected $orderBy = [];
+    protected $orderBy = array();
 
     /**
      * @return string

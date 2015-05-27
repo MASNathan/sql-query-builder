@@ -19,7 +19,7 @@ abstract class AbstractCreationalQuery extends AbstractBaseQuery
     /**
      * @var array
      */
-    protected $values = [];
+    protected $values = array();
 
     /**
      * @param string $table

@@ -27,7 +27,7 @@ class Select extends AbstractBaseQuery
     /**
      * @var array
      */
-    protected $groupBy = [];
+    protected $groupBy = array();
 
     /**
      * @var string
@@ -105,7 +105,7 @@ class Select extends AbstractBaseQuery
      *
      * @return Select
      */
-    public function leftJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function leftJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->joinQuery->leftJoin($table, $selfColumn, $refColumn, $columns);
     }
@@ -123,7 +123,7 @@ class Select extends AbstractBaseQuery
         $table,
         $selfColumn = null,
         $refColumn = null,
-        $columns = [],
+        $columns = array(),
         $joinType = null
     ) {
         return $this->joinQuery->join($table, $selfColumn, $refColumn, $columns, $joinType);
@@ -173,7 +173,7 @@ class Select extends AbstractBaseQuery
      *
      * @return Select
      */
-    public function rightJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function rightJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->joinQuery->rightJoin($table, $selfColumn, $refColumn, $columns);
     }
@@ -186,7 +186,7 @@ class Select extends AbstractBaseQuery
      *
      * @return Select
      */
-    public function crossJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function crossJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->joinQuery->crossJoin($table, $selfColumn, $refColumn, $columns);
     }
@@ -199,7 +199,7 @@ class Select extends AbstractBaseQuery
      *
      * @return Select
      */
-    public function innerJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function innerJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->joinQuery->innerJoin($table, $selfColumn, $refColumn, $columns);
     }
@@ -332,7 +332,7 @@ class Select extends AbstractBaseQuery
      */
     protected function getAllOperation($data, $operation)
     {
-        $collection = [];
+        $collection = array();
 
         if (!is_null($data)) {
             $collection[] = $data;

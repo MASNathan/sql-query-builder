@@ -42,7 +42,7 @@ class JoinQuery
     /**
      * @var array
      */
-    protected $joins = [];
+    protected $joins = array();
 
     /**
      * @var Select
@@ -77,7 +77,7 @@ class JoinQuery
      *
      * @return Select
      */
-    public function leftJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function leftJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->join($table, $selfColumn, $refColumn, $columns, self::JOIN_LEFT);
     }
@@ -95,7 +95,7 @@ class JoinQuery
         $table,
         $selfColumn = null,
         $refColumn = null,
-        $columns = [],
+        $columns = array(),
         $joinType = null
     ) {
         if (!isset($this->joins[$table])) {
@@ -156,7 +156,7 @@ class JoinQuery
      *
      * @return Select
      */
-    public function rightJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function rightJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->join($table, $selfColumn, $refColumn, $columns, self::JOIN_RIGHT);
     }
@@ -169,7 +169,7 @@ class JoinQuery
      *
      * @return Select
      */
-    public function crossJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function crossJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->join($table, $selfColumn, $refColumn, $columns, self::JOIN_CROSS);
     }
@@ -182,7 +182,7 @@ class JoinQuery
      *
      * @return Select
      */
-    public function innerJoin($table, $selfColumn = null, $refColumn = null, $columns = [])
+    public function innerJoin($table, $selfColumn = null, $refColumn = null, $columns = array())
     {
         return $this->join($table, $selfColumn, $refColumn, $columns, self::JOIN_INNER);
     }

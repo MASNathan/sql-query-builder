@@ -16,11 +16,11 @@ class WhereWriter extends AbstractBaseWriter
     /**
      * @var array
      */
-    protected $matchMode = [
+    protected $matchMode = array(
         'natural'         => "(MATCH({{columnNames}}) AGAINST({{columnValues}}))",
         'boolean'         => "(MATCH({{columnNames}}) AGAINST({{columnValues}} IN BOOLEAN MODE))",
         'query_expansion' => "(MATCH({{columnNames}}) AGAINST({{columnValues}} WITH QUERY EXPANSION))"
-    ];
+    );
 
     /**
      * @param Where $where
@@ -46,7 +46,7 @@ class WhereWriter extends AbstractBaseWriter
      */
     public function writeWhereClauses(Where $where)
     {
-        $whereArray = [];
+        $whereArray = array();
 
         $this->writeWhereMatches($where, $whereArray);
         $this->writeWhereIns($where, $whereArray);
@@ -71,7 +71,7 @@ class WhereWriter extends AbstractBaseWriter
      */
     protected function writeWhereMatches(Where $where, array &$whereArray)
     {
-        $matches = [];
+        $matches = array();
 
         foreach ($where->getMatches() as $values) {
             $columns = SyntaxFactory::createColumns($values['columns'], $where->getTable());
@@ -81,8 +81,8 @@ class WhereWriter extends AbstractBaseWriter
             $columnValues = implode(", ", $this->writer->writeValues($columnValues));
 
             $matches[] = str_replace(
-                ['{{columnNames}}', '{{columnValues}}'],
-                [$columnNames, $columnValues],
+                array('{{columnNames}}', '{{columnValues}}'),
+                array($columnNames, $columnValues),
                 $this->matchMode[$values['mode']]
             );
         }
@@ -97,7 +97,7 @@ class WhereWriter extends AbstractBaseWriter
      */
     protected function getColumnNames($columns)
     {
-        $columnNames = [];
+        $columnNames = array();
         foreach ($columns as &$column) {
             $columnNames[] = $this->columnWriter->writeColumn($column);
         }
@@ -128,7 +128,7 @@ class WhereWriter extends AbstractBaseWriter
      */
     protected function writeWhereIn(Where $where, $method, $operation)
     {
-        $collection = [];
+        $collection = array();
 
         foreach ($where->$method() as $column => $values) {
             $newColumn = array($column);
@@ -325,7 +325,7 @@ class WhereWriter extends AbstractBaseWriter
      */
     protected function writeExistence(Where $where, $method, $operation)
     {
-        $exists = [];
+        $exists = array();
 
         foreach ($where->$method() as $select) {
             $exists[] = "$operation (" . $this->writer->write($select, false) . ")";

@@ -36,47 +36,47 @@ class Where
     /**
      * @var array
      */
-    private $comparisons = [];
+    private $comparisons = array();
 
     /**
      * @var array
      */
-    private $betweens = [];
+    private $betweens = array();
 
     /**
      * @var array
      */
-    private $isNull = [];
+    private $isNull = array();
 
     /**
      * @var array
      */
-    private $isNotNull = [];
+    private $isNotNull = array();
 
     /**
      * @var array
      */
-    private $booleans = [];
+    private $booleans = array();
 
     /**
      * @var array
      */
-    private $match = [];
+    private $match = array();
 
     /**
      * @var array
      */
-    private $ins = [];
+    private $ins = array();
 
     /**
      * @var array
      */
-    private $notIns = [];
+    private $notIns = array();
 
     /**
      * @var array
      */
-    private $subWheres = [];
+    private $subWheres = array();
 
     /**
      * @var string
@@ -96,12 +96,12 @@ class Where
     /**
      * @var array
      */
-    private $exists = [];
+    private $exists = array();
 
     /**
      * @var array
      */
-    private $notExists = [];
+    private $notExists = array();
 
     /**
      * @param QueryInterface $query
@@ -181,7 +181,7 @@ class Where
      */
     public function conjunction($operator)
     {
-        if (false === in_array($operator, [self::CONJUNCTION_AND, self::CONJUNCTION_OR])) {
+        if (false === in_array($operator, array(self::CONJUNCTION_AND, self::CONJUNCTION_OR))) {
             throw new QueryException(
                 "Invalid conjunction specified, must be one of AND or OR, but '".$operator."' was found."
             );
@@ -248,11 +248,11 @@ class Where
     {
         $column = $this->prepareColumn($column);
 
-        $this->comparisons[] = [
+        $this->comparisons[] = array(
             "subject" => $column,
             "conjunction" => $operator,
             "target" => $value
-        ];
+        );
 
         return $this;
     }
@@ -269,7 +269,7 @@ class Where
             return $column;
         }
 
-        $newColumn = [$column];
+        $newColumn = array($column);
 
         return SyntaxFactory::createColumn($newColumn, $this->getTable());
     }
@@ -370,11 +370,11 @@ class Where
      */
     protected function genericMatch(array &$columns, array &$values, $mode)
     {
-        $this->match[] = [
+        $this->match[] = array(
             'columns' => $columns,
             'values'  => $values,
             'mode'    => $mode,
-        ];
+        );
 
         return $this;
     }
@@ -432,7 +432,7 @@ class Where
     public function between($column, $a, $b)
     {
         $column           = $this->prepareColumn($column);
-        $this->betweens[] = ["subject" => $column, "a" => $a, "b" => $b];
+        $this->betweens[] = array("subject" => $column, "a" => $a, "b" => $b);
 
         return $this;
     }
@@ -445,7 +445,7 @@ class Where
     public function isNull($column)
     {
         $column         = $this->prepareColumn($column);
-        $this->isNull[] = ["subject" => $column];
+        $this->isNull[] = array("subject" => $column);
 
         return $this;
     }
@@ -457,7 +457,7 @@ class Where
     public function isNotNull($column)
     {
         $column            = $this->prepareColumn($column);
-        $this->isNotNull[] = ["subject" => $column];
+        $this->isNotNull[] = array("subject" => $column);
 
         return $this;
     }
@@ -470,7 +470,7 @@ class Where
     public function addBitClause($column, $value)
     {
         $column           = $this->prepareColumn($column);
-        $this->booleans[] = ["subject" => $column, "value" => $value];
+        $this->booleans[] = array("subject" => $column, "value" => $value);
 
         return $this;
     }

@@ -21,7 +21,7 @@ abstract class AbstractSetQuery implements QueryInterface, QueryPartInterface
     /**
      * @var array
      */
-    protected $union = [];
+    protected $union = array();
 
     /**
      * @param Select $select

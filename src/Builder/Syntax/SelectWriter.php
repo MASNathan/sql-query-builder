@@ -62,7 +62,7 @@ class SelectWriter extends AbstractBaseWriter
      */
     protected function writeSelectQuery(Select $select)
     {
-        $parts = ["SELECT"];
+        $parts = array("SELECT");
 
         if ($select->isDistinct()) {
             $parts[] = "DISTINCT";
@@ -96,7 +96,7 @@ class SelectWriter extends AbstractBaseWriter
                 $this->columnWriter->writeFuncAsColumns($select)
             );
 
-            $parts = array_merge($parts, [implode(", ", $columns)]);
+            $parts = array_merge($parts, array(implode(", ", $columns)));
 
             return $this;
         }
@@ -105,7 +105,7 @@ class SelectWriter extends AbstractBaseWriter
         $column     = array_pop($columns);
         $columnList = $column->getName();
 
-        $parts = array_merge($parts, [$columnList]);
+        $parts = array_merge($parts, array($columnList));
 
         return $this;
     }
@@ -142,7 +142,7 @@ class SelectWriter extends AbstractBaseWriter
     {
         $parts = array_merge(
             $parts,
-            ["FROM " . $this->writer->writeTableWithAlias($select->getTable())]
+            array("FROM " . $this->writer->writeTableWithAlias($select->getTable()))
         );
 
         return $this;
@@ -158,7 +158,7 @@ class SelectWriter extends AbstractBaseWriter
     {
         $parts = array_merge(
             $parts,
-            [$this->writeSelectAggrupation($select, $this->writer, 'getAllJoins', 'writeJoin', " ")]
+            array($this->writeSelectAggrupation($select, $this->writer, 'getAllJoins', 'writeJoin', " "))
         );
 
         return $this;
@@ -212,7 +212,7 @@ class SelectWriter extends AbstractBaseWriter
             $str .= implode($separator, $wheres);
         }
 
-        $parts = array_merge($parts, [$str]);
+        $parts = array_merge($parts, array($str));
 
         return $this;
     }
@@ -254,7 +254,7 @@ class SelectWriter extends AbstractBaseWriter
             "GROUP BY "
         );
 
-        $parts = array_merge($parts, [$groupBy]);
+        $parts = array_merge($parts, ($groupBy));
 
         return $this;
     }
@@ -281,7 +281,7 @@ class SelectWriter extends AbstractBaseWriter
             $str .= implode($separator, $havingArray);
         }
 
-        $parts = array_merge($parts, [$str]);
+        $parts = array_merge($parts, array($str));
 
         return $this;
     }
@@ -335,7 +335,7 @@ class SelectWriter extends AbstractBaseWriter
             $str .= implode(", ", $orderByArray);
         }
 
-        $parts = array_merge($parts, [$str]);
+        $parts = array_merge($parts, array($str));
 
         return $this;
     }
@@ -371,7 +371,7 @@ class SelectWriter extends AbstractBaseWriter
             $limit = "LIMIT {$start}, {$count}";
         }
 
-        $parts = array_merge($parts, [$limit]);
+        $parts = array_merge($parts, array($limit));
 
         return $this;
     }

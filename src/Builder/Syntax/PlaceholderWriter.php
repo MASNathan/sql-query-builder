@@ -24,7 +24,7 @@ class PlaceholderWriter
     /**
      * @var array
      */
-    protected $placeholders = [];
+    protected $placeholders = array();
 
     /**
      * @return array
@@ -40,7 +40,7 @@ class PlaceholderWriter
     public function reset()
     {
         $this->counter      = 1;
-        $this->placeholders = [];
+        $this->placeholders = array();
 
         return $this;
     }

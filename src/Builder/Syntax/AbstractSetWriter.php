@@ -41,7 +41,7 @@ abstract class AbstractSetWriter
      */
     protected function abstractWrite(QueryPartInterface $setClass, $setOperation, $glue)
     {
-        $selects = [];
+        $selects = array();
 
         foreach ($setClass->$setOperation() as $select) {
             $selects[] = $this->writer->write($select);

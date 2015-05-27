@@ -23,22 +23,22 @@ class ColumnQuery
     /**
      * @var array
      */
-    protected $columns = [];
+    protected $columns = array();
 
     /**
      * @var array
      */
-    protected $columnSelects = [];
+    protected $columnSelects = array();
 
     /**
      * @var array
      */
-    protected $columnValues = [];
+    protected $columnValues = array();
 
     /**
      * @var array
      */
-    protected $columnFuncs = [];
+    protected $columnFuncs = array();
 
     /**
      * @var bool
@@ -173,7 +173,7 @@ class ColumnQuery
      */
     public function setFunctionAsColumn($funcName, array $arguments, $alias)
     {
-        $this->columnFuncs[$alias] = ['func' => $funcName, 'args' => $arguments];
+        $this->columnFuncs[$alias] = array('func' => $funcName, 'args' => $arguments);
 
         return $this;
     }
