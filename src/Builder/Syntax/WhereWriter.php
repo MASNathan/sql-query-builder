@@ -193,13 +193,14 @@ class WhereWriter extends AbstractBaseWriter
     protected function writeWhereComparisons(Where $where, array &$whereArray)
     {
         $comparisons = $where->getComparisons();
+        $me = $this;
         array_walk(
             $comparisons,
-            function (&$comparison) {
+            function (&$comparison) use ($me) {
 
-                $str = $this->writeWherePartialCondition($comparison["subject"]);
-                $str .= $this->writer->writeConjunction($comparison["conjunction"]);
-                $str .= $this->writeWherePartialCondition($comparison["target"]);
+                $str = $me->writeWherePartialCondition($comparison["subject"]);
+                $str .= $me->writer->writeConjunction($comparison["conjunction"]);
+                $str .= $me->writeWherePartialCondition($comparison["target"]);
 
                 $comparison = "($str)";
             }
@@ -252,12 +253,13 @@ class WhereWriter extends AbstractBaseWriter
     {
         $collection = $where->$getMethod();
 
+        $me = $this;
         array_walk(
             $collection,
-            function (&$collection) use ($writeMethod) {
+            function (&$collection) use ($writeMethod, $me) {
                 $collection =
-                    "(" . $this->columnWriter->writeColumn($collection["subject"])
-                    . $this->writer->$writeMethod() . ")";
+                    "(" . $me->columnWriter->writeColumn($collection["subject"])
+                    . $me->writer->$writeMethod() . ")";
             }
         );
 
@@ -289,11 +291,12 @@ class WhereWriter extends AbstractBaseWriter
         $booleans          = $where->getBooleans();
         $placeholderWriter = $this->placeholderWriter;
 
+        $me = $this;
         array_walk(
             $booleans,
-            function (&$boolean) use (&$placeholderWriter) {
-                $column = $this->columnWriter->writeColumn($boolean["subject"]);
-                $value  = $this->placeholderWriter->add($boolean["value"]);
+            function (&$boolean) use (&$placeholderWriter, $me) {
+                $column = $me->columnWriter->writeColumn($boolean["subject"]);
+                $value  = $me->placeholderWriter->add($boolean["value"]);
 
                 $boolean = "(ISNULL(" . $column . ", 0) = " . $value . ")";
             }
@@ -358,10 +361,11 @@ class WhereWriter extends AbstractBaseWriter
     {
         $subWheres = $where->getSubWheres();
 
+        $me = $this;
         array_walk(
             $subWheres,
-            function (&$subWhere) {
-                $subWhere = "({$this->writeWhere($subWhere)})";
+            function (&$subWhere) use ($me) {
+                $subWhere = "({$me->writeWhere($subWhere)})";
             }
         );
 

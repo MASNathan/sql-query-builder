@@ -121,11 +121,11 @@ class SelectWriter extends AbstractBaseWriter
     protected function writeColumnAlias($tableColumns, $selectAsColumns, $valueAsColumns, $funcAsColumns)
     {
         $columns = array_merge($tableColumns, $selectAsColumns, $valueAsColumns, $funcAsColumns);
-
+        $me = $this;
         array_walk(
             $columns,
-            function (&$column) {
-                $column = $this->columnWriter->writeColumnWithAlias($column);
+            function (&$column) use ($me) {
+                $column = $me->columnWriter->writeColumnWithAlias($column);
             }
         );
 
@@ -324,10 +324,11 @@ class SelectWriter extends AbstractBaseWriter
         $str = "";
         if (count($select->getAllOrderBy())) {
             $orderByArray = $select->getAllOrderBy();
+            $me = $this;
             array_walk(
                 $orderByArray,
-                function (&$orderBy) {
-                    $orderBy = $this->writeOrderBy($orderBy);
+                function (&$orderBy) use ($me) {
+                    $orderBy = $me->writeOrderBy($orderBy);
                 }
             );
 

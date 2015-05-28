@@ -315,10 +315,11 @@ class GenericBuilder implements BuilderInterface
      */
     public function writeValues(array &$values)
     {
+        $me = $this;
         array_walk(
             $values,
-            function (&$value) {
-                $value = $this->writePlaceholderValue($value);
+            function (&$value) use ($me) {
+                $value = $me->writePlaceholderValue($value);
             }
         );
 
