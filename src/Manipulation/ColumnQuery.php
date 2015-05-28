@@ -23,37 +23,37 @@ class ColumnQuery
     /**
      * @var array
      */
-    protected $columns = array();
+    public $columns = array();
 
     /**
      * @var array
      */
-    protected $columnSelects = array();
+    public $columnSelects = array();
 
     /**
      * @var array
      */
-    protected $columnValues = array();
+    public $columnValues = array();
 
     /**
      * @var array
      */
-    protected $columnFuncs = array();
+    public $columnFuncs = array();
 
     /**
      * @var bool
      */
-    protected $isCount = false;
+    public $isCount = false;
 
     /**
      * @var Select
      */
-    protected $select;
+    public $select;
 
     /**
      * @var JoinQuery
      */
-    protected $joinQuery;
+    public $joinQuery;
 
     /**
      * @param Select    $select

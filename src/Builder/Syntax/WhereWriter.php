@@ -16,7 +16,7 @@ class WhereWriter extends AbstractBaseWriter
     /**
      * @var array
      */
-    protected $matchMode = array(
+    public $matchMode = array(
         'natural'         => "(MATCH({{columnNames}}) AGAINST({{columnValues}}))",
         'boolean'         => "(MATCH({{columnNames}}) AGAINST({{columnValues}} IN BOOLEAN MODE))",
         'query_expansion' => "(MATCH({{columnNames}}) AGAINST({{columnValues}} WITH QUERY EXPANSION))"
@@ -69,7 +69,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereMatches(Where $where, array &$whereArray)
+    public function writeWhereMatches(Where $where, array &$whereArray)
     {
         $matches = array();
 
@@ -95,7 +95,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return string
      */
-    protected function getColumnNames($columns)
+    public function getColumnNames($columns)
     {
         $columnNames = array();
         foreach ($columns as &$column) {
@@ -111,7 +111,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereIns(Where $where, array &$whereArray)
+    public function writeWhereIns(Where $where, array &$whereArray)
     {
         $whereArray = array_merge(
             $whereArray,
@@ -126,7 +126,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereIn(Where $where, $method, $operation)
+    public function writeWhereIn(Where $where, $method, $operation)
     {
         $collection = array();
 
@@ -150,7 +150,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereNotIns(Where $where, array &$whereArray)
+    public function writeWhereNotIns(Where $where, array &$whereArray)
     {
         $whereArray = array_merge(
             $whereArray,
@@ -164,7 +164,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereBetweens(Where $where, array &$whereArray)
+    public function writeWhereBetweens(Where $where, array &$whereArray)
     {
         $between = $where->getBetweens();
         array_walk(
@@ -190,7 +190,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereComparisons(Where $where, array &$whereArray)
+    public function writeWhereComparisons(Where $where, array &$whereArray)
     {
         $comparisons = $where->getComparisons();
         $me = $this;
@@ -214,7 +214,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return string
      */
-    protected function writeWherePartialCondition(&$subject)
+    public function writeWherePartialCondition(&$subject)
     {
         if ($subject instanceof Column) {
             $str = $this->columnWriter->writeColumn($subject);
@@ -234,7 +234,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereIsNulls(Where $where, array &$whereArray)
+    public function writeWhereIsNulls(Where $where, array &$whereArray)
     {
         $whereArray = array_merge(
             $whereArray,
@@ -249,7 +249,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereIsNullable(Where $where, $getMethod, $writeMethod)
+    public function writeWhereIsNullable(Where $where, $getMethod, $writeMethod)
     {
         $collection = $where->$getMethod();
 
@@ -272,7 +272,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereIsNotNulls(Where $where, array &$whereArray)
+    public function writeWhereIsNotNulls(Where $where, array &$whereArray)
     {
         $whereArray = array_merge(
             $whereArray,
@@ -286,7 +286,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeWhereBooleans(Where $where, array &$whereArray)
+    public function writeWhereBooleans(Where $where, array &$whereArray)
     {
         $booleans          = $where->getBooleans();
         $placeholderWriter = $this->placeholderWriter;
@@ -311,7 +311,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeExists(Where $where, array &$whereArray)
+    public function writeExists(Where $where, array &$whereArray)
     {
         $whereArray = array_merge(
             $whereArray,
@@ -326,7 +326,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeExistence(Where $where, $method, $operation)
+    public function writeExistence(Where $where, $method, $operation)
     {
         $exists = array();
 
@@ -343,7 +343,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeNotExists(Where $where, array &$whereArray)
+    public function writeNotExists(Where $where, array &$whereArray)
     {
         $whereArray = array_merge(
             $whereArray,
@@ -357,7 +357,7 @@ class WhereWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeSubWheres(Where $where, array &$whereArray)
+    public function writeSubWheres(Where $where, array &$whereArray)
     {
         $subWheres = $where->getSubWheres();
 

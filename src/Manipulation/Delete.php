@@ -18,7 +18,7 @@ class Delete extends AbstractBaseQuery
     /**
      * @var int
      */
-    protected $limitStart;
+    public $limitStart;
 
     /**
      * @param string $table

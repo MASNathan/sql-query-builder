@@ -21,17 +21,17 @@ class OrderBy
     /**
      * @var Column
      */
-    protected $column;
+    public $column;
 
     /**
      * @var string
      */
-    protected $direction;
+    public $direction;
 
     /**
      * @var boolean
      */
-    protected $useAlias;
+    public $useAlias;
 
     /**
      * @param Column $column

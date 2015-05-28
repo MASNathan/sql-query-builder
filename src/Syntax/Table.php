@@ -18,22 +18,22 @@ class Table
     /**
      * @var string
      */
-    protected $name;
+    public $name;
 
     /**
      * @var string
      */
-    protected $alias;
+    public $alias;
 
     /**
      * @var string
      */
-    protected $schema;
+    public $schema;
 
     /**
      * @var bool
      */
-    protected $view = false;
+    public $view = false;
 
     /**
      * @param        $name

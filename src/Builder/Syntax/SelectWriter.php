@@ -60,7 +60,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return string
      */
-    protected function writeSelectQuery(Select $select)
+    public function writeSelectQuery(Select $select)
     {
         $parts = array("SELECT");
 
@@ -118,7 +118,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeColumnAlias($tableColumns, $selectAsColumns, $valueAsColumns, $funcAsColumns)
+    public function writeColumnAlias($tableColumns, $selectAsColumns, $valueAsColumns, $funcAsColumns)
     {
         $columns = array_merge($tableColumns, $selectAsColumns, $valueAsColumns, $funcAsColumns);
         $me = $this;
@@ -174,7 +174,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return string
      */
-    protected function writeSelectAggrupation(Select $select, $writer, $getMethod, $writeMethod, $glue, $prepend = '')
+    public function writeSelectAggrupation(Select $select, $writer, $getMethod, $writeMethod, $glue, $prepend = '')
     {
         $str   = "";
         $joins = $select->$getMethod();
@@ -222,7 +222,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return array
      */
-    protected function writeSelectWheres(array $wheres)
+    public function writeSelectWheres(array $wheres)
     {
         $whereWriter = WriterFactory::createWhereWriter($this->writer, $this->placeholderWriter);
 
@@ -294,7 +294,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return mixed
      */
-    protected function getHavingConditions(
+    public function getHavingConditions(
         array &$havingArray,
         Select $select,
         GenericBuilder $writer,
@@ -319,7 +319,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return $this
      */
-    protected function writeSelectOrderBy(Select $select, array &$parts)
+    public function writeSelectOrderBy(Select $select, array &$parts)
     {
         $str = "";
         if (count($select->getAllOrderBy())) {
@@ -359,7 +359,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return $this
      */
-    protected function writeSelectLimit(Select $select, array &$parts)
+    public function writeSelectLimit(Select $select, array &$parts)
     {
         $mask = $this->getStartingLimit($select) . $this->getLimitCount($select);
 
@@ -382,7 +382,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return string
      */
-    protected function getStartingLimit(Select $select)
+    public function getStartingLimit(Select $select)
     {
         return (null === $select->getLimitStart() || 0 == $select->getLimitStart()) ? '0' : '1';
     }
@@ -392,7 +392,7 @@ class SelectWriter extends AbstractBaseWriter
      *
      * @return string
      */
-    protected function getLimitCount(Select $select)
+    public function getLimitCount(Select $select)
     {
         return (null === $select->getLimitCount()) ? '0' : '1';
     }

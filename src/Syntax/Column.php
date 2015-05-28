@@ -22,17 +22,17 @@ class Column implements QueryPartInterface
     /**
      * @var Table
      */
-    protected $table;
+    public $table;
 
     /**
      * @var string
      */
-    protected $name;
+    public $name;
 
     /**
      * @var string
      */
-    protected $alias;
+    public $alias;
 
     /**
      * @param string $name

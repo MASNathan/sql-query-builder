@@ -22,7 +22,7 @@ abstract class AbstractSetWriter
     /**
      * @var GenericBuilder
      */
-    protected $writer;
+    public $writer;
 
     /**
      * @param GenericBuilder $writer
@@ -39,7 +39,7 @@ abstract class AbstractSetWriter
      *
      * @return string
      */
-    protected function abstractWrite(QueryPartInterface $setClass, $setOperation, $glue)
+    public function abstractWrite(QueryPartInterface $setClass, $setOperation, $glue)
     {
         $selects = array();
 

@@ -27,27 +27,27 @@ class JoinQuery
     /**
      * @var Where
      */
-    protected $joinCondition;
+    public $joinCondition;
 
     /**
      * @var bool
      */
-    protected $isJoin = false;
+    public $isJoin = false;
 
     /**
      * @var string
      */
-    protected $joinType;
+    public $joinType;
 
     /**
      * @var array
      */
-    protected $joins = array();
+    public $joins = array();
 
     /**
      * @var Select
      */
-    protected $select;
+    public $select;
 
     /**
      * @param Select $select

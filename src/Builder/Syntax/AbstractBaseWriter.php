@@ -22,17 +22,17 @@ abstract class AbstractBaseWriter
     /**
      * @var GenericBuilder
      */
-    protected $writer;
+    public $writer;
 
     /**
      * @var PlaceholderWriter
      */
-    protected $placeholderWriter;
+    public $placeholderWriter;
 
     /**
      * @var ColumnWriter
      */
-    protected $columnWriter;
+    public $columnWriter;
 
     /**
      * @param GenericBuilder    $writer

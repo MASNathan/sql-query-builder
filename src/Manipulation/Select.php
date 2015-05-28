@@ -22,47 +22,47 @@ class Select extends AbstractBaseQuery
     /**
      * @var Table
      */
-    protected $table;
+    public $table;
 
     /**
      * @var array
      */
-    protected $groupBy = array();
+    public $groupBy = array();
 
     /**
      * @var string
      */
-    protected $camelCaseTableName = "";
+    public $camelCaseTableName = "";
 
     /**
      * @var Where
      */
-    protected $having;
+    public $having;
 
     /**
      * @var string
      */
-    protected $havingOperator = "AND";
+    public $havingOperator = "AND";
 
     /**
      * @var bool
      */
-    protected $isDistinct = false;
+    public $isDistinct = false;
 
     /**
      * @var Where
      */
-    protected $where;
+    public $where;
 
     /**
      * @var JoinQuery
      */
-    protected $joinQuery;
+    public $joinQuery;
 
     /**
      * @var ColumnQuery
      */
-    protected $columnQuery;
+    public $columnQuery;
 
     /**
      * @param string $table
@@ -330,7 +330,7 @@ class Select extends AbstractBaseQuery
      *
      * @return array
      */
-    protected function getAllOperation($data, $operation)
+    public function getAllOperation($data, $operation)
     {
         $collection = array();
 

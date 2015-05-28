@@ -109,7 +109,7 @@ class GenericBuilder implements BuilderInterface
      *
 *@return \NilPortugues\Sql\QueryBuilder\Manipulation\AbstractBaseQuery
      */
-    protected function injectBuilder(AbstractBaseQuery $query)
+    public function injectBuilder(AbstractBaseQuery $query)
     {
         return $query->setBuilder($this);
     }
@@ -383,7 +383,7 @@ class GenericBuilder implements BuilderInterface
     /**
      * @return string
      */
-    protected function writeColumnAll()
+    public function writeColumnAll()
     {
         return '*';
     }
@@ -391,7 +391,7 @@ class GenericBuilder implements BuilderInterface
     /**
      * @param string $queryPart
      */
-    protected function createQueryObject($queryPart)
+    public function createQueryObject($queryPart)
     {
         if (null === $this->queryWriterInstances[$queryPart]) {
             $this->queryWriterInstances[$queryPart] = call_user_func_array(

@@ -26,7 +26,7 @@ class AbstractBaseQuery implements QueryInterface, QueryPartInterface
     /**
      * @var string
      */
-    protected $comment = '';
+    public $comment = '';
 
     /**
      * @var \NilPortugues\Sql\QueryBuilder\Builder\BuilderInterface
@@ -36,42 +36,42 @@ class AbstractBaseQuery implements QueryInterface, QueryPartInterface
     /**
      * @var string
      */
-    protected $table;
+    public $table;
 
     /**
      * @var string
      */
-    protected $whereOperator = "AND";
+    public $whereOperator = "AND";
 
     /**
      * @var Where
      */
-    protected $where;
+    public $where;
 
     /**
      * @var array
      */
-    protected $joins = array();
+    public $joins = array();
 
     /**
      * @var int
      */
-    protected $limitStart;
+    public $limitStart;
 
     /**
      * @var int
      */
-    protected $limitCount;
+    public $limitCount;
 
     /**
      * @var array
      */
-    protected $orderBy = array();
+    public $orderBy = array();
 
     /**
      * @return Where
      */
-    protected function filter()
+    public function filter()
     {
         if (!isset($this->where)) {
             $this->where = QueryFactory::createWhere($this);

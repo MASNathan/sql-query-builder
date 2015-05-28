@@ -18,12 +18,12 @@ class Update extends AbstractCreationalQuery
     /**
      * @var int
      */
-    protected $limitStart;
+    public $limitStart;
 
     /**
      * @var array
      */
-    protected $orderBy = array();
+    public $orderBy = array();
 
     /**
      * @return string

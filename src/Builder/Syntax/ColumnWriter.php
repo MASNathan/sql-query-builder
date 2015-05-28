@@ -64,7 +64,7 @@ class ColumnWriter
      *
      * @return mixed
      */
-    protected function selectColumnToQuery(array &$selectAsColumns, SelectWriter $selectWriter)
+    public function selectColumnToQuery(array &$selectAsColumns, SelectWriter $selectWriter)
     {
         array_walk(
             $selectAsColumns,

@@ -368,7 +368,7 @@ class Where
      *
      * @return $this
      */
-    protected function genericMatch(array &$columns, array &$values, $mode)
+    public function genericMatch(array &$columns, array &$values, $mode)
     {
         $this->match[] = array(
             'columns' => $columns,

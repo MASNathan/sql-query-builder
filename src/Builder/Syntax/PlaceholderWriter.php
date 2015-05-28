@@ -19,12 +19,12 @@ class PlaceholderWriter
     /**
      * @var integer
      */
-    protected $counter = 1;
+    public $counter = 1;
 
     /**
      * @var array
      */
-    protected $placeholders = array();
+    public $placeholders = array();
 
     /**
      * @return array
@@ -65,7 +65,7 @@ class PlaceholderWriter
      *
      * @return string
      */
-    protected function setValidSqlValue($value)
+    public function setValidSqlValue($value)
     {
         $value = $this->writeNullSqlString($value);
         $value = $this->writeStringAsSqlString($value);
@@ -79,7 +79,7 @@ class PlaceholderWriter
      *
      * @return string
      */
-    protected function writeNullSqlString($value)
+    public function writeNullSqlString($value)
     {
         if (is_null($value) || (is_string($value) && empty($value))) {
             $value = $this->writeNull();
@@ -91,7 +91,7 @@ class PlaceholderWriter
     /**
      * @return string
      */
-    protected function writeNull()
+    public function writeNull()
     {
         return "NULL";
     }
@@ -101,7 +101,7 @@ class PlaceholderWriter
      *
      * @return string
      */
-    protected function writeStringAsSqlString($value)
+    public function writeStringAsSqlString($value)
     {
         if (is_string($value)) {
             $value = $this->writeString($value);
@@ -115,7 +115,7 @@ class PlaceholderWriter
      *
      * @return string
      */
-    protected function writeString($value)
+    public function writeString($value)
     {
         return $value;
     }
@@ -125,7 +125,7 @@ class PlaceholderWriter
      *
      * @return string
      */
-    protected function writeBooleanSqlString($value)
+    public function writeBooleanSqlString($value)
     {
         if (is_bool($value)) {
             $value = $this->writeBoolean($value);
@@ -139,7 +139,7 @@ class PlaceholderWriter
      *
      * @return string
      */
-    protected function writeBoolean($value)
+    public function writeBoolean($value)
     {
         $value = filter_var($value, FILTER_VALIDATE_BOOLEAN);
 

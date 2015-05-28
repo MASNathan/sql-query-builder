@@ -67,7 +67,7 @@ class InsertWriter
      *
      * @return string
      */
-    protected function writeQueryColumns($columns)
+    public function writeQueryColumns($columns)
     {
         return $this->writeCommaSeparatedValues($columns, $this->columnWriter, 'writeColumn');
     }
@@ -79,7 +79,7 @@ class InsertWriter
      *
      * @return string
      */
-    protected function writeCommaSeparatedValues($collection, $writer, $method)
+    public function writeCommaSeparatedValues($collection, $writer, $method)
     {
         array_walk(
             $collection,
@@ -96,7 +96,7 @@ class InsertWriter
      *
      * @return string
      */
-    protected function writeQueryValues($values)
+    public function writeQueryValues($values)
     {
         return $this->writeCommaSeparatedValues($values, $this->writer, 'writePlaceholderValue');
     }
