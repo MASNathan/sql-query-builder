@@ -139,7 +139,10 @@ class AbstractBaseQuery implements QueryInterface, QueryPartInterface
     /**
      * @return string
      */
-    abstract public function partName();
+    public function partName()
+    {
+        return '';
+    }
 
     /**
      * @return Where

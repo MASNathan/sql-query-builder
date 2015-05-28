@@ -44,6 +44,14 @@ class AbstractSetQuery implements QueryInterface, QueryPartInterface
     }
 
     /**
+     * @return string
+     */
+    public function partName()
+    {
+        return '';
+    }
+
+    /**
      * @throws QueryException
      * @return \NilPortugues\Sql\QueryBuilder\Syntax\Table
      */
