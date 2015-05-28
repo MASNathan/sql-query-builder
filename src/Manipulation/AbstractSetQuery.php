@@ -16,7 +16,7 @@ use NilPortugues\Sql\QueryBuilder\Syntax\QueryPartInterface;
  * Class AbstractSetQuery
  * @package NilPortugues\Sql\QueryBuilder\Manipulation
  */
-abstract class AbstractSetQuery implements QueryInterface, QueryPartInterface
+class AbstractSetQuery implements QueryInterface, QueryPartInterface
 {
     /**
      * @var array

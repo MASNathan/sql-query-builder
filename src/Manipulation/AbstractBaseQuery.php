@@ -21,7 +21,7 @@ use NilPortugues\Sql\QueryBuilder\Builder\BuilderInterface;
  * Class AbstractBaseQuery
  * @package NilPortugues\Sql\QueryBuilder
  */
-abstract class AbstractBaseQuery implements QueryInterface, QueryPartInterface
+class AbstractBaseQuery implements QueryInterface, QueryPartInterface
 {
     /**
      * @var string
