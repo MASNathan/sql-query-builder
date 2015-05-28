@@ -22,7 +22,7 @@ class MinusWriter
     /**
      * @var GenericBuilder
      */
-    private $writer;
+    public $writer;
 
     /**
      * @param GenericBuilder $writer

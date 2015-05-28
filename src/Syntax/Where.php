@@ -36,72 +36,72 @@ class Where
     /**
      * @var array
      */
-    private $comparisons = array();
+    public $comparisons = array();
 
     /**
      * @var array
      */
-    private $betweens = array();
+    public $betweens = array();
 
     /**
      * @var array
      */
-    private $isNull = array();
+    public $isNull = array();
 
     /**
      * @var array
      */
-    private $isNotNull = array();
+    public $isNotNull = array();
 
     /**
      * @var array
      */
-    private $booleans = array();
+    public $booleans = array();
 
     /**
      * @var array
      */
-    private $match = array();
+    public $match = array();
 
     /**
      * @var array
      */
-    private $ins = array();
+    public $ins = array();
 
     /**
      * @var array
      */
-    private $notIns = array();
+    public $notIns = array();
 
     /**
      * @var array
      */
-    private $subWheres = array();
+    public $subWheres = array();
 
     /**
      * @var string
      */
-    private $conjunction = self::CONJUNCTION_AND;
+    public $conjunction = self::CONJUNCTION_AND;
 
     /**
      * @var  QueryInterface
      */
-    private $query;
+    public $query;
 
     /**
      * @var Table
      */
-    private $table;
+    public $table;
 
     /**
      * @var array
      */
-    private $exists = array();
+    public $exists = array();
 
     /**
      * @var array
      */
-    private $notExists = array();
+    public $notExists = array();
 
     /**
      * @param QueryInterface $query
@@ -262,7 +262,7 @@ class Where
      *
      * @return Column|Select
      */
-    private function prepareColumn($column)
+    public function prepareColumn($column)
     {
         //This condition handles the "Select as a a column" special case.
         if ($column instanceof Select) {

@@ -49,7 +49,7 @@ class UpdateWriter extends AbstractBaseWriter
      *
      * @return string
      */
-    private function writeUpdateValues(Update $update)
+    public function writeUpdateValues(Update $update)
     {
         $assigns = array();
         foreach ($update->getValues() as $column => $value) {

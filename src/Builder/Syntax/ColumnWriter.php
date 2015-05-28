@@ -24,12 +24,12 @@ class ColumnWriter
     /**
      * @var \NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder
      */
-    private $writer;
+    public $writer;
 
     /**
      * @var PlaceholderWriter
      */
-    private $placeholderWriter;
+    public $placeholderWriter;
 
     /**
      * @param GenericBuilder    $writer

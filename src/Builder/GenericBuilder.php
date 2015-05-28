@@ -28,21 +28,21 @@ class GenericBuilder implements BuilderInterface
      *
      * @var \NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter
      */
-    private $placeholderWriter;
+    public $placeholderWriter;
 
     /**
      * The Where writer.
      *
      * @var \NilPortugues\Sql\QueryBuilder\Builder\Syntax\WhereWriter
      */
-    private $whereWriter;
+    public $whereWriter;
 
     /**
      * The SQL formatter.
      *
      * @var \NilPortugues\Sql\QueryFormatter\Formatter
      */
-    private $sqlFormatter;
+    public $sqlFormatter;
 
     /**
      * Class namespace for the query pretty output formatter.
@@ -50,7 +50,7 @@ class GenericBuilder implements BuilderInterface
      *
      * @var string
      */
-    private $sqlFormatterClass = 'NilPortugues\Sql\QueryFormatter\Formatter';
+    public $sqlFormatterClass = 'NilPortugues\Sql\QueryFormatter\Formatter';
 
     /**
      * Array holding the writers for each query part. Methods are called upon request and stored in
@@ -58,7 +58,7 @@ class GenericBuilder implements BuilderInterface
      *
      * @var array
      */
-    private $queryWriterArray = array(
+    public $queryWriterArray = array(
         'SELECT'    => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createSelectWriter',
         'INSERT'    => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createInsertWriter',
         'UPDATE'    => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUpdateWriter',
@@ -74,7 +74,7 @@ class GenericBuilder implements BuilderInterface
      *
      * @var array
      */
-    private $queryWriterInstances = array(
+    public $queryWriterInstances = array(
         'SELECT'    => null,
         'INSERT'    => null,
         'UPDATE'    => null,

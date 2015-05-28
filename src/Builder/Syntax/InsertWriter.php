@@ -23,12 +23,12 @@ class InsertWriter
     /**
      * @var GenericBuilder
      */
-    private $writer;
+    public $writer;
 
     /**
      * @var ColumnWriter
      */
-    private $columnWriter;
+    public $columnWriter;
 
     /**
      * @param GenericBuilder    $writer

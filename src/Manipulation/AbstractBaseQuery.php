@@ -31,7 +31,7 @@ class AbstractBaseQuery implements QueryInterface, QueryPartInterface
     /**
      * @var \NilPortugues\Sql\QueryBuilder\Builder\BuilderInterface
      */
-    private $builder;
+    public $builder;
 
     /**
      * @var string
