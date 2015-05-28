@@ -66,9 +66,10 @@ class ColumnWriter
      */
     public function selectColumnToQuery(array &$selectAsColumns, SelectWriter $selectWriter)
     {
+        $me = $this;
         array_walk(
             $selectAsColumns,
-            function (&$column) use (&$selectWriter) {
+            function (&$column) use (&$selectWriter, $me) {
                 $keys = array_keys($column);
                 $key  = array_pop($keys);
 
@@ -77,7 +78,7 @@ class ColumnWriter
 
                 if (is_numeric($key)) {
                     /** @var Column $value */
-                    $key = $this->writer->writeTableName($value->getTable());
+                    $key = $me->writer->writeTableName($value->getTable());
                 }
                 $column = $selectWriter->selectToColumn($key, $value);
             }

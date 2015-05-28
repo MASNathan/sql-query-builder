@@ -300,13 +300,14 @@ class SelectWriter extends AbstractBaseWriter
         GenericBuilder $writer,
         PlaceholderWriter $placeholder
     ) {
+        $me = $this;
         array_walk(
             $havingArray,
-            function (&$having) use ($select, $writer, $placeholder) {
+            function (&$having) use ($select, $writer, $placeholder, $me) {
 
                 $whereWriter = WriterFactory::createWhereWriter($writer, $placeholder);
                 $clauses     = $whereWriter->writeWhereClauses($having);
-                $having      = implode($this->writer->writeConjunction($select->getHavingOperator()), $clauses);
+                $having      = implode($me->writer->writeConjunction($select->getHavingOperator()), $clauses);
             }
         );
 

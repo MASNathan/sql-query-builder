@@ -167,16 +167,17 @@ class WhereWriter extends AbstractBaseWriter
     public function writeWhereBetweens(Where $where, array &$whereArray)
     {
         $between = $where->getBetweens();
+        $me = $this;
         array_walk(
             $between,
-            function (&$between) {
+            function (&$between) use ($me) {
 
                 $between = "("
-                    . $this->columnWriter->writeColumn($between["subject"])
+                    . $me->columnWriter->writeColumn($between["subject"])
                     . " BETWEEN "
-                    . $this->writer->writePlaceholderValue($between["a"])
+                    . $me->writer->writePlaceholderValue($between["a"])
                     . " AND "
-                    . $this->writer->writePlaceholderValue($between["b"])
+                    . $me->writer->writePlaceholderValue($between["b"])
                     . ")";
             }
         );
