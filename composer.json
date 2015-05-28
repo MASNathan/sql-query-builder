@@ -20,12 +20,6 @@
             "role":"Contributor"
         }
     ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:MASNathan/sql-query-formatter.git"
-        }
-    ],
     "autoload":{
         "psr-4":{
             "NilPortugues\\Sql\\QueryBuilder\\":"src/"
