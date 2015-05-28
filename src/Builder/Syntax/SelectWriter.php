@@ -254,7 +254,7 @@ class SelectWriter extends AbstractBaseWriter
             "GROUP BY "
         );
 
-        $parts = array_merge($parts, ($groupBy));
+        $parts = array_merge($parts, array($groupBy));
 
         return $this;
     }
