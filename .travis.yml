@@ -9,13 +9,7 @@ php:
 before_script:
   - travis_retry composer self-update
   - alias composer="php -d zend.enable_gc=0 /usr/bin/composer"
-  - composer require --dev satooshi/php-coveralls:dev-master
   - travis_retry composer install --no-interaction --prefer-source
-
-after_script:
-  - export COVERALLS_RUN_LOCALLY=1
-  - php bin/coveralls -v
 
 script: 
   - bin/phpunit --coverage-text
-  - bin/phpunit-randomizer --order rand --repeat 10
