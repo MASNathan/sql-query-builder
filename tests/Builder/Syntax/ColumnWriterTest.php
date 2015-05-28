@@ -78,7 +78,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
     public function itShouldWriteFuncAsColumns()
     {
         $select = new Select('user');
-        $select->setFunctionAsColumn('MAX', ['user_id'], 'max_value');
+        $select->setFunctionAsColumn('MAX', array('user_id'), 'max_value');
 
         $result = $this->columnWriter->writeFuncAsColumns($select);
 

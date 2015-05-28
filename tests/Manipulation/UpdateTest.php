@@ -53,7 +53,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
      */
     public function itShouldReturnValues()
     {
-        $values = ['user_id' => 1];
+        $values = array('user_id' => 1);
 
         $this->query->setValues($values);
 

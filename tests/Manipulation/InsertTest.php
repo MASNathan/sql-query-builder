@@ -43,7 +43,7 @@ class InsertTest extends \PHPUnit_Framework_TestCase
      */
     public function itShouldSetValues()
     {
-        $values = ['user_id' => 1, 'username' => 'nilportugues'];
+        $values = array('user_id' => 1, 'username' => 'nilportugues');
 
         $this->query->setValues($values);
 
@@ -55,7 +55,7 @@ class InsertTest extends \PHPUnit_Framework_TestCase
      */
     public function itShouldGetColumns()
     {
-        $values = ['user_id' => 1, 'username' => 'nilportugues'];
+        $values = array('user_id' => 1, 'username' => 'nilportugues');
 
         $this->query->setValues($values);
 
