@@ -106,12 +106,12 @@ class GenericBuilderTest extends \PHPUnit_Framework_TestCase
     public function itCanAcceptATableNameForSelectInsertUpdateDeleteQueries()
     {
         $table = 'user';
-        $queries = [
+        $queries = array(
             'select' => $this->writer->select($table),
             'insert' => $this->writer->insert($table),
             'update' => $this->writer->update($table),
             'delete' => $this->writer->delete($table),
-        ];
+        );
 
         foreach ($queries as $type => $query) {
             $this->assertEquals($table, $query->getTable()->getName(), "Checking table in $type query");
@@ -124,7 +124,7 @@ class GenericBuilderTest extends \PHPUnit_Framework_TestCase
     public function itCanAcceptATableAndColumnsForSelect()
     {
         $table    = 'user';
-        $columns  = ['id', 'role'];
+        $columns  = array('id', 'role');
         $expected = <<<QUERY
 SELECT
     user.id,
@@ -144,7 +144,7 @@ QUERY;
     public function itCanAcceptATableAndValuesForInsert()
     {
         $table    = 'user';
-        $values   = ['id' => 1, 'role' => 'admin'];
+        $values   = array('id' => 1, 'role' => 'admin');
         $expected = <<<QUERY
 INSERT INTO user (user.id, user.role)
 VALUES
@@ -162,7 +162,7 @@ QUERY;
     public function itCanAcceptATableAndValuesForUpdate()
     {
         $table    = 'user';
-        $values   = ['id' => 1, 'role' => 'super-admin'];
+        $values   = array('id' => 1, 'role' => 'super-admin');
         $expected = <<<QUERY
 UPDATE
     user
