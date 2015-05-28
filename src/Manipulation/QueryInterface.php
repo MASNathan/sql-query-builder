@@ -18,7 +18,7 @@ interface QueryInterface
     /**
      * @return string
      */
-    public function partName();
+    //public function partName();
 
     /**
      * @return \NilPortugues\Sql\QueryBuilder\Syntax\Table
