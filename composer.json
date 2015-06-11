@@ -33,7 +33,7 @@
     "require":
     {
         "php": ">=5.3",
-        "masnathan/sql-query-formatter": "dev-master"
+        "masnathan/sql-query-formatter": "v1.2.1"
     },
     "require-dev":
     {
